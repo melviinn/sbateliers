@@ -1,5 +1,5 @@
 <?php
-	var_dump( $_GET[ 'route' ] ) ;
+	//var_dump( $_GET[ 'route' ] ) ;
 	$route = $_GET[ 'route' ] ;
 
 	if( $route == '' ){
@@ -19,15 +19,12 @@
 	}
 	elseif( $route == 'clients/espace' ){ 
 		session_start() ;
-		//require "vues/vue-espace-clients.php" ;
-		echo $_SESSION[ "numero" ] ;
-		echo $_SESSION[ "nom" ] ;
-		echo $_SESSION[ "prenom" ] ;
+		require "vues/vue-espace-client.php" ;
 	}
 	elseif( $route == 'clients/profil' ){
 		require "vues/vue-profil-client.php" ;
 	}
 	elseif( $route == 'clients/deconnecter' ){
-		require "controleur/ctrl-deconnecter-client.php" ;
+		require "controleurs/ctrl-deconnecter-client.php" ;
 	}
 ?>

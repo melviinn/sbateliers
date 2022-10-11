@@ -1,5 +1,5 @@
 <?php
-	//var_dump( $_GET[ 'route' ] ) ;
+	var_dump( $_GET[ 'route' ] ) ;
 	$route = $_GET[ 'route' ] ;
 
 	if( $route == '' ){

@@ -22,9 +22,12 @@
 		require "vues/vue-espace-client.php" ;
 	}
 	elseif( $route == 'clients/profil' ){
-		require "vues/vue-profil-client.php" ;
+		session_start() ;
+		require "controleurs/ctrl-voir-profil.php"
+		//require "vues/vue-profil-client.php" ;
 	}
 	elseif( $route == 'clients/deconnecter' ){
+		session_start() ;
 		require "controleurs/ctrl-deconnecter-client.php" ;
 	}
 ?>

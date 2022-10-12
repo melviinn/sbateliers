@@ -22,7 +22,56 @@
 			$st = $bd->prepare( $sql ) ;
 			$st->execute( array( ':email' => $email , ':mdp' => $mdp ) ) ;
 			$client = $st->fetch( PDO::FETCH_ASSOC ) ;
+			$st->closeCursor() ;
 			return $client ;
+		}
+		
+		public static function getprofil( $numero ){
+			$bd = self::getConnexion() ;
+			$sql = "select civilite,date_naissance,email,mobile,adresse,cp,ville from client where numero = :numero" ;
+			$st = $bd->prepare( $sql ) ;
+			$st->execute( array( ':numero' => $numero ) ) ;
+			$client = $st->fetch( PDO::FETCH_ASSOC ) ;
+			$st->closeCursor() ;
+			return $client ;
+		}
+		
+		public static function enregistrerClient(
+				$civilite ,
+				$nom ,
+				$prenom ,
+				$naissance ,
+				$email ,
+				$mobile ,
+				$adresse ,
+				$cp ,
+				$ville ,
+				$mdp
+			) {
+				
+			$bd = self::getConnexion() ;	
+			
+			$sql = 'insert into client(civilite,nom,prenom,date_naissance,email,mobile,adresse,cp,ville,mdp) '
+				 . 'values( :civilite , :nom , :prenom , :naissance  , :email , :mobile , :adresse , :cp , :ville , :mdp )' ;
+			
+			$st = $bd -> prepare( $sql ) ;
+			
+			$st -> execute( array(
+					':civilite' => $civilite ,
+					':nom' => $nom ,
+					':prenom' => $prenom ,
+					':naissance' => $naissance ,
+					':email' => $email ,
+					':mobile' => $mobile ,
+					':adresse' => $adresse ,
+					':cp' => $cp ,
+					':ville' => $ville ,
+					':mdp' => $mdp
+				)
+			) ;
+			
+			$st -> closeCursor() ;
+			
 		}
 		
 	}

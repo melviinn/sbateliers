@@ -7,7 +7,8 @@
 	</head>
 	
 	<body>
-		
+		<a href="/sbateliers/clients/profil">Profil</a>
+		<a href="/sbateliers/ateliers/programmes">Ateliers programmés</a>
 		<a href="/sbateliers/clients/deconnecter">Se déconnecter</a>
 		
 		<h5><?= $_SESSION[ "nom" ] ?> <?= $_SESSION[ "prenom" ] ?></h5>

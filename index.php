@@ -23,8 +23,7 @@
 	}
 	elseif( $route == 'clients/profil' ){
 		session_start() ;
-		require "controleurs/ctrl-voir-profil.php"
-		//require "vues/vue-profil-client.php" ;
+		require "controleurs/ctrl-consulter-profil.php" ;
 	}
 	elseif( $route == 'clients/deconnecter' ){
 		session_start() ;

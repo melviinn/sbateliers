@@ -29,4 +29,8 @@
 		session_start() ;
 		require "controleurs/ctrl-deconnecter-client.php" ;
 	}
+	elseif( $route == 'ateliers/programmes' ){
+		session_start() ;
+		require "controleurs/ctrl-consulter-ateliers.php" ;
+	}
 ?>

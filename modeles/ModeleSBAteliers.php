@@ -26,6 +26,20 @@
 			return $client ;
 		}
 		
+		public static function getAteliersProgrammes(){
+			$bd = self::getConnexion() ;
+			$sql = "select a.numero , theme , date_heure , duree , nom , prenom "
+				 . "from atelier a "
+				 . "inner join responsable r "
+				 . "on a.responsable = r.numero "
+				 . "where date_heure > now() " ;
+			$st = $bd->prepare( $sql ) ;
+			$st->execute() ;
+			$ateliers = $st->fetchall( PDO::FETCH_ASSOC ) ;
+			$st->closeCursor() ;
+			return $ateliers ;
+		}
+		
 		public static function getprofil( $numero ){
 			$bd = self::getConnexion() ;
 			$sql = "select civilite,date_naissance,email,mobile,adresse,cp,ville from client where numero = :numero" ;
@@ -77,6 +91,8 @@
 	}
 	
 	//ModeleSBAteliers::getClient( "valentine.onestas@gmail.com" , "azerty" ) ;
+	
+	//var_dump( ModeleSBAteliers::getAteliersProgrammes() ) ;
 	
 
 
